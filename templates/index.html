@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}HostUp - Premium Remote Airbnb Co-hosting in India{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-forest-green text-white min-h-screen flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-forest-green/90 to-forest-green/70"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold text-gold mb-6 animate-fade-in">
+            Effortless Airbnb Hosting.<br class="hidden sm:block">
+            <span class="text-white">Fully Remote.</span>
+        </h1>
+        <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up">
+            We manage your property on Airbnb end-to-end so you can enjoy stress-free passive income. From NRI property owners to busy professionals - we handle everything while you earn more.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+            <a href="mailto:hostup.co.in@gmail.com?subject=Free%20Consultation%20Request%20-%20Airbnb%20Co-hosting&body=Hi%20HostUp%20Team,%0D%0A%0D%0AI'm%20interested%20in%20your%20premium%20Airbnb%20co-hosting%20services.%20Please%20schedule%20a%20free%20consultation%20at%20your%20convenience.%0D%0A%0D%0AProperty%20Details:%0D%0A-%20Location:%20[Please%20specify:%20Jaipur/Delhi/Mumbai/Other]%0D%0A-%20Property%20Type:%20[Apartment/Villa/House]%0D%0A-%20Number%20of%20Bedrooms:%20%0D%0A-%20Current%20Status:%20[Empty/Self-occupied/Rented]%0D%0A%0D%0APreferred%20Meeting%20Times:%0D%0A-%20Option%201:%20[Date%20and%20Time]%0D%0A-%20Option%202:%20[Date%20and%20Time]%0D%0A-%20Option%203:%20[Date%20and%20Time]%0D%0A%0D%0AContact%20Information:%0D%0A-%20Name:%20%0D%0A-%20Phone:%20%0D%0A-%20Best%20time%20to%20call:%20%0D%0A%0D%0AQuestions%20or%20specific%20requirements:%0D%0A%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ANote:%20You%20can%20also%20reach%20us%20directly%20on%20WhatsApp%20at%20+91%209819726493%20for%20instant%20scheduling." class="btn-primary">
+                Book Free Consultation
+                <i class="fas fa-calendar-alt ml-2"></i>
+            </a>
+            <a href="#benefits" class="btn-secondary">
+                Learn More
+                <i class="fas fa-play ml-2"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#benefits" class="text-gold hover:text-yellow-300 transition-colors duration-300">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section id="benefits" class="py-16 lg:py-24 bg-light-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-forest-green mb-4">
+                Why Choose HostUp?
+            </h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Experience the perfect blend of technology and hospitality with our comprehensive Airbnb management.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            <div class="text-center group animate-slide-up">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-clock text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-forest-green mb-4">24/7 Guest Support</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Round-the-clock professional guest communication in English and Hindi. We handle inquiries, complaints, check-ins, and emergencies so you never have to worry about difficult guests or late-night calls.
+                </p>
+            </div>
+            
+            <div class="text-center group animate-slide-up" style="animation-delay: 0.1s;">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-chart-line text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-forest-green mb-4">Smart Pricing Tools</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Our AI-powered pricing engine analyzes 50+ market factors daily - competitor rates, local events, seasonality, demand patterns - automatically adjusting your prices to maximize occupancy and revenue.
+                </p>
+            </div>
+            
+            <div class="text-center group animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-star text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-forest-green mb-4">Superhost Strategy</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Our proven 8-step Superhost system ensures 4.8+ star ratings: perfect welcome messages, proactive issue resolution, thoughtful amenities, and strategic review management that turns guests into advocates.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-forest-green mb-4">
+                How It Works
+            </h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Get started with HostUp in three simple steps and watch your passive income grow.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left">
+                <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center text-forest-green font-bold text-xl mb-4 lg:mb-0 lg:mr-6">
+                    1
+                </div>
+                <div>
+                    <h3 class="font-playfair text-xl font-semibold text-forest-green mb-3">Free Consultation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Schedule a free consultation call to discuss your property and hosting goals. We evaluate your property's earning potential, competition analysis, and create a custom growth strategy tailored to your investment objectives.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left">
+                <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center text-forest-green font-bold text-xl mb-4 lg:mb-0 lg:mr-6">
+                    2
+                </div>
+                <div>
+                    <h3 class="font-playfair text-xl font-semibold text-forest-green mb-3">Setup & Launch</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Professional photography, SEO-optimized listing creation, smart lock installation, vendor network activation, competitive pricing setup, and Airbnb account optimization - all completed within 7-14 days.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left">
+                <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center text-forest-green font-bold text-xl mb-4 lg:mb-0 lg:mr-6">
+                    3
+                </div>
+                <div>
+                    <h3 class="font-playfair text-xl font-semibold text-forest-green mb-3">Earn Passively</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Complete hands-off experience: automated pricing, 24/7 guest support, cleaning coordination, maintenance management, review optimization, and monthly performance reports - you just collect the profits.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 lg:py-24 bg-forest-green text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div class="animate-fade-in">
+                <div class="text-3xl lg:text-4xl font-bold text-gold mb-2">24/7</div>
+                <div class="text-gray-300">Guest Support</div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                <div class="text-3xl lg:text-4xl font-bold text-gold mb-2">3</div>
+                <div class="text-gray-300">Major Cities</div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="text-3xl lg:text-4xl font-bold text-gold mb-2">100%</div>
+                <div class="text-gray-300">Remote Service</div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="text-3xl lg:text-4xl font-bold text-gold mb-2">5★</div>
+                <div class="text-gray-300">Average Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 lg:py-24 bg-light-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-forest-green mb-6">
+            Ready to Transform Your Property into Passive Income?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Join hundreds of satisfied property owners who trust HostUp with their Airbnb hosting. 
+            Schedule a free consultation today and discover your earning potential.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button onclick="openCalendarModal()" class="btn-primary">
+                Book Free Consultation
+                <i class="fas fa-calendar-alt ml-2"></i>
+            </button>
+            <a href="https://wa.me/919819726493" class="btn-secondary">
+                WhatsApp Us
+                <i class="fab fa-whatsapp ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

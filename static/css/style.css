@@ -1,0 +1,554 @@
+/* Custom CSS for HostUp Website */
+
+/* CSS Variables for consistent theming */
+:root {
+    --forest-green: #0D2B20;
+    --gold: #C9B037;
+    --cream: #F9F7F1;
+    --light-cream: #FAFAFA;
+    --charcoal: #333333;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Reset and base styles */
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography enhancements */
+.font-playfair {
+    letter-spacing: 0.02em;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--gold), 0 0 10px var(--gold), 0 0 15px var(--gold);
+    }
+    to {
+        box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold), 0 0 30px var(--gold);
+    }
+}
+
+/* Animation classes - simplified for performance */
+.animate-fade-in {
+    opacity: 1;
+}
+
+.animate-slide-up {
+    opacity: 1;
+}
+
+.animate-slide-in-left {
+    opacity: 1;
+}
+
+.animate-slide-in-right {
+    opacity: 1;
+}
+
+/* Intersection Observer animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+}
+
+.animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button styles */
+.btn-primary {
+    @apply inline-flex items-center px-8 py-4 bg-transparent border-2 border-gold text-gold font-inter font-medium text-base rounded-lg transition-all duration-300 hover:bg-gold hover:text-forest-green hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gold/25;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-8 py-4 bg-gold text-forest-green font-inter font-medium text-base rounded-lg transition-all duration-300 hover:bg-yellow-600 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gold/25;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Navigation styles */
+.nav-link {
+    @apply text-forest-green font-inter font-medium text-sm uppercase tracking-wide transition-all duration-300 hover:text-gold relative;
+    letter-spacing: 0.05em;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.mobile-nav-link {
+    @apply block px-3 py-2 text-forest-green font-inter font-medium text-base transition-all duration-300 hover:text-gold hover:bg-light-cream rounded-md;
+    letter-spacing: 0.05em;
+}
+
+.mobile-nav-link.active {
+    @apply text-gold bg-light-cream;
+}
+
+/* Mobile menu animations */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-menu.show {
+    max-height: 400px;
+}
+
+/* Form styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    transition: var(--transition-smooth);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 3px rgba(201, 176, 55, 0.1) !important;
+    outline: none;
+}
+
+/* Custom select styling */
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25em 1.25em;
+    padding-right: 2.5rem;
+}
+
+/* FAQ Toggle Styles */
+.faq-toggle {
+    transition: var(--transition-smooth);
+}
+
+.faq-toggle:hover {
+    background-color: rgba(201, 176, 55, 0.05);
+}
+
+.faq-toggle .fas {
+    transition: transform 0.3s ease;
+}
+
+.faq-toggle[aria-expanded="true"] .fas {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.faq-content.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Flash message styles */
+.flash-message {
+    animation: slideInRight 0.5s ease-out;
+}
+
+.flash-message button {
+    transition: var(--transition-smooth);
+}
+
+.flash-message button:hover {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+/* Loading states */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover effects for cards */
+.hover-lift {
+    transition: var(--transition-smooth);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Gold accent lines */
+.gold-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8a232;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-secondary {
+        @apply px-6 py-3 text-sm;
+    }
+    
+    .nav-link {
+        @apply text-xs;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    /* Mobile text optimizations */
+    p {
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+    
+    .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75;
+    }
+    
+    /* Better mobile spacing */
+    section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Optimize mobile animations */
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-slide-in-left,
+    .animate-slide-in-right {
+        animation-duration: 0.4s;
+    }
+    
+    /* Chat widget mobile positioning */
+    #chat-widget {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    #chat-window {
+        width: calc(100vw - 2rem);
+        max-width: 320px;
+        bottom: 5rem;
+        right: 0;
+    }
+    
+    /* Mobile form improvements */
+    .flash-message {
+        position: fixed;
+        top: 5rem;
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+        z-index: 60;
+    }
+}
+
+/* Calendar picker styles */
+.calendar-modal {
+    transition: all 0.3s ease;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+}
+
+.calendar-day {
+    @apply w-10 h-10 flex items-center justify-center text-sm border border-gray-200 rounded cursor-pointer transition-colors duration-200 hover:bg-light-cream;
+}
+
+.calendar-day.selected {
+    @apply bg-gold text-forest-green;
+}
+
+.calendar-day.disabled {
+    @apply opacity-30 cursor-not-allowed hover:bg-transparent;
+}
+
+.calendar-day.today {
+    @apply border-gold border-2;
+}
+
+.time-slot {
+    @apply px-3 py-2 text-sm border border-gray-200 rounded cursor-pointer transition-colors duration-200 hover:bg-light-cream;
+}
+
+.time-slot.selected {
+    @apply bg-gold text-forest-green;
+}
+
+@media (max-width: 640px) {
+    .btn-primary,
+    .btn-secondary {
+        @apply w-full justify-center;
+    }
+    
+    /* Mobile-specific adjustments */
+    .mobile-padding {
+        @apply px-4;
+    }
+    
+    /* Stack elements on mobile */
+    .mobile-stack > * {
+        @apply w-full mb-4;
+    }
+    
+    .mobile-stack > *:last-child {
+        @apply mb-0;
+    }
+}
+
+/* High-DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp rendering on retina displays */
+    .font-playfair {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black !important;
+        background: white !important;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        border: 1px solid black;
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+.focus\:ring-gold:focus {
+    --tw-ring-color: rgba(201, 176, 55, 0.5);
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Keep light theme as default for brand consistency */
+    }
+}
+
+/* Custom utility classes */
+.text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.text-shadow-gold {
+    text-shadow: 0 0 10px rgba(201, 176, 55, 0.3);
+}
+
+.backdrop-blur-safari {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Grid auto-fit utilities for responsive layouts */
+.grid-auto-fit-300 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.grid-auto-fit-250 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Intersection observer animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom checkbox and radio styles */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--gold);
+}
+
+/* Enhanced link styles */
+a {
+    transition: var(--transition-smooth);
+}
+
+/* Smooth focus transitions */
+*:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    transition: outline-offset 0.2s ease;
+}
+
+/* Loading skeleton styles for future use */
+.skeleton {
+    background: linear-gradient(110deg, var(--light-cream) 8%, #f0f0f0 18%, var(--light-cream) 33%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: calc(200% + 100px) 0;
+    }
+}

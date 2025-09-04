@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - HostUp{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-light-cream to-white flex items-center justify-center px-4">
+    <div class="max-w-md w-full text-center">
+        <div class="mb-8">
+            <div class="w-24 h-24 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-exclamation-triangle text-forest-green text-3xl"></i>
+            </div>
+            <h1 class="font-playfair text-4xl font-bold text-forest-green mb-4">404</h1>
+            <h2 class="font-playfair text-2xl font-semibold text-forest-green mb-4">Page Not Found</h2>
+            <p class="text-gray-600 mb-8">
+                Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.
+            </p>
+        </div>
+        
+        <div class="space-y-4">
+            <a href="{{ url_for('home') }}" class="btn-primary inline-block">
+                <i class="fas fa-home mr-2"></i>
+                Go Home
+            </a>
+            <div>
+                <a href="{{ url_for('contact') }}" class="text-gold hover:text-forest-green underline">
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

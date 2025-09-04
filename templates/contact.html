@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}Contact HostUp - Get Started with Airbnb Co-hosting{% endblock %}
+
+{% block description %}Contact HostUp for premium Airbnb co-hosting services in India. Free consultation, 24/7 support, and personalized property management solutions for Jaipur, Delhi, and Mumbai.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-light-cream py-16 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="font-playfair text-4xl lg:text-5xl font-bold text-forest-green mb-6 animate-fade-in">
+            Get Started Today
+        </h1>
+        <div class="w-24 h-1 bg-gold mx-auto mb-8"></div>
+        <p class="text-lg lg:text-xl text-gray-600 leading-relaxed animate-slide-up">
+            Ready to transform your property into a profitable Airbnb? 
+            Contact our team for a free consultation and personalized strategy.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Form & Info Section -->
+<section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <!-- Contact Form -->
+            <div class="animate-slide-in-left">
+                <div class="bg-light-cream rounded-lg p-8 lg:p-10 shadow-lg">
+                    <h2 class="font-playfair text-2xl lg:text-3xl font-bold text-forest-green mb-6">
+                        Send Us a Message
+                    </h2>
+                    <div class="w-16 h-1 bg-gold mb-8"></div>
+                    
+                    <form method="POST" class="space-y-6">
+                        {{ form.hidden_tag() }}
+                        
+                        <!-- Name Field -->
+                        <div>
+                            {{ form.name.label(class="block text-sm font-semibold text-forest-green mb-2") }}
+                            {{ form.name(class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 outline-none") }}
+                            {% if form.name.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in form.name.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Email Field -->
+                        <div>
+                            {{ form.email.label(class="block text-sm font-semibold text-forest-green mb-2") }}
+                            {{ form.email(class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 outline-none") }}
+                            {% if form.email.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in form.email.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Phone Field -->
+                        <div>
+                            {{ form.phone.label(class="block text-sm font-semibold text-forest-green mb-2") }}
+                            {{ form.phone(class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 outline-none", placeholder="+91 9876543210") }}
+                            {% if form.phone.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in form.phone.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Property Location Field -->
+                        <div>
+                            {{ form.property_location.label(class="block text-sm font-semibold text-forest-green mb-2") }}
+                            {{ form.property_location(class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 outline-none") }}
+                            {% if form.property_location.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in form.property_location.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Message Field -->
+                        <div>
+                            {{ form.message.label(class="block text-sm font-semibold text-forest-green mb-2") }}
+                            {{ form.message(class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all duration-300 outline-none", rows="5", placeholder="Tell us about your property and hosting goals...") }}
+                            {% if form.message.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in form.message.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" class="btn-primary w-full justify-center">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <p class="text-sm text-gray-600 mt-6 text-center">
+                        We typically respond within 24 hours. For urgent queries, please WhatsApp us directly.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="animate-slide-in-right">
+                <div class="sticky top-32">
+                    <h2 class="font-playfair text-2xl lg:text-3xl font-bold text-forest-green mb-6">
+                        Get In Touch
+                    </h2>
+                    <div class="w-16 h-1 bg-gold mb-8"></div>
+                    
+                    <div class="space-y-8">
+                        <!-- WhatsApp -->
+                        <div class="flex items-start group">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-whatsapp text-forest-green text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-forest-green text-lg mb-2">WhatsApp Us</h3>
+                                <p class="text-gray-600 mb-3">Quick responses and instant support</p>
+                                <div class="space-y-1">
+                                    <a href="https://wa.me/919819726493" class="block text-gold hover:text-yellow-600 transition-colors duration-300">
+                                        +91 9819726493
+                                    </a>
+                                    <a href="https://wa.me/919317210055" class="block text-gold hover:text-yellow-600 transition-colors duration-300">
+                                        +91 9317210055
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="flex items-start group">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-envelope text-forest-green text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-forest-green text-lg mb-2">Email Us</h3>
+                                <p class="text-gray-600 mb-3">Detailed inquiries and documentation</p>
+                                <a href="mailto:hostup.co.in@gmail.com" class="text-gold hover:text-yellow-600 transition-colors duration-300">
+                                    hostup.co.in@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Working Hours -->
+                        <div class="flex items-start group">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-clock text-forest-green text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-forest-green text-lg mb-2">Availability</h3>
+                                <p class="text-gray-600 mb-3">We're here when you need us</p>
+                                <p class="text-gold font-semibold">24/7 Support</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Locations -->
+                        <div class="flex items-start group">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gold rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-map-marker-alt text-forest-green text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-forest-green text-lg mb-2">Service Areas</h3>
+                                <p class="text-gray-600 mb-3">Currently serving three major cities</p>
+                                <div class="space-y-1">
+                                    <p class="text-gold">🇮🇳 Jaipur</p>
+                                    <p class="text-gold">🇮🇳 Delhi</p>
+                                    <p class="text-gold">🇮🇳 Mumbai</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="mt-12 pt-8 border-t border-gray-200">
+                        <h3 class="font-semibold text-forest-green text-lg mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center text-forest-green hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center text-forest-green hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center text-forest-green hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Alternative Contact Methods -->
+<section class="py-16 lg:py-24 bg-forest-green text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-gold mb-4">
+                Prefer a Different Approach?
+            </h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                Choose the communication method that works best for you.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Schedule Call -->
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-phone text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-gold mb-4">Schedule a Call</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Book a convenient time for a detailed discussion about your property and goals.
+                </p>
+                <a href="{{ url_for('contact') }}" class="btn-secondary">
+                    Schedule Now
+                    <i class="fas fa-calendar-alt ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- WhatsApp Chat -->
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fab fa-whatsapp text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-gold mb-4">WhatsApp Chat</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Get instant responses to your questions through our WhatsApp business number.
+                </p>
+                <a href="https://wa.me/919819726493" class="btn-secondary">
+                    Start Chat
+                    <i class="fab fa-whatsapp ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Email Consultation -->
+            <div class="text-center group">
+                <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-envelope text-forest-green text-2xl"></i>
+                </div>
+                <h3 class="font-playfair text-xl font-semibold text-gold mb-4">Email Consultation</h3>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    Send us detailed information about your property for a comprehensive response.
+                </p>
+                <a href="mailto:hostup.co.in@gmail.com" class="btn-secondary">
+                    Send Email
+                    <i class="fas fa-envelope ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Teaser -->
+<section class="py-16 lg:py-24 bg-light-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-forest-green mb-6">
+            Have Questions?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Check out our comprehensive FAQ section for quick answers to common questions 
+            about our services, pricing, and process.
+        </p>
+        <a href="{{ url_for('faqs') }}" class="btn-primary">
+            View FAQs
+            <i class="fas fa-question-circle ml-2"></i>
+        </a>
+    </div>
+</section>
+{% endblock %}

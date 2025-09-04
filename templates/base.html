@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HostUp - Premium Airbnb Co-hosting in India{% endblock %}</title>
+    <meta name="description" content="{% block description %}Professional remote Airbnb management for Indian property owners. 24/7 support, smart pricing, and superhost strategy in Jaipur, Delhi, and Mumbai.{% endblock %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': '#0D2B20',
+                        'gold': '#C9B037',
+                        'cream': '#F9F7F1',
+                        'light-cream': '#FAFAFA',
+                        'charcoal': '#333333'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out',
+                        'slide-in-right': 'slideInRight 0.6s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter text-charcoal bg-cream">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="{{ url_for('index') }}" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" 
+                             alt="HostUp - Airbnb Co-hosting" 
+                             class="h-10 w-auto lg:h-12">
+                        <span class="text-forest-green font-playfair text-xl lg:text-2xl font-bold tracking-wide">
+                            HostUp
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a>
+                        <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
+                        <a href="{{ url_for('services') }}" class="nav-link {% if request.endpoint == 'services' %}active{% endif %}">Services</a>
+                        <a href="{{ url_for('testimonials') }}" class="nav-link {% if request.endpoint == 'testimonials' %}active{% endif %}">Testimonials</a>
+                        <a href="{{ url_for('faqs') }}" class="nav-link {% if request.endpoint == 'faqs' %}active{% endif %}">FAQs</a>
+                        <a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn text-gold hover:text-yellow-300 focus:outline-none focus:text-yellow-300 transition-colors duration-300" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-forest-green border-t border-gold/20">
+                <a href="{{ url_for('index') }}" class="mobile-nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a>
+                <a href="{{ url_for('about') }}" class="mobile-nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a>
+                <a href="{{ url_for('services') }}" class="mobile-nav-link {% if request.endpoint == 'services' %}active{% endif %}">Services</a>
+                <a href="{{ url_for('testimonials') }}" class="mobile-nav-link {% if request.endpoint == 'testimonials' %}active{% endif %}">Testimonials</a>
+                <a href="{{ url_for('faqs') }}" class="mobile-nav-link {% if request.endpoint == 'faqs' %}active{% endif %}">FAQs</a>
+                <a href="{{ url_for('contact') }}" class="mobile-nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="fixed top-20 right-4 z-50 space-y-2">
+                {% for category, message in messages %}
+                    <div class="flash-message px-6 py-4 rounded-lg shadow-lg max-w-md {% if category == 'success' %}bg-green-100 border border-green-400 text-green-700{% else %}bg-red-100 border border-red-400 text-red-700{% endif %} animate-slide-in-right">
+                        <div class="flex items-center justify-between">
+                            <span>{{ message }}</span>
+                            <button type="button" class="ml-4 text-lg font-semibold opacity-70 hover:opacity-100" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-forest-green text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-gold font-playfair text-2xl font-bold mb-4">HostUp</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Premium remote Airbnb co-hosting services for Indian property owners. 
+                        We manage your property end-to-end so you can enjoy stress-free passive income.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-yellow-300 transition-colors duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gold hover:text-yellow-300 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-gold font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{{ url_for('index') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">Home</a></li>
+                        <li><a href="{{ url_for('about') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">About Us</a></li>
+                        <li><a href="{{ url_for('services') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">Services</a></li>
+                        <li><a href="{{ url_for('testimonials') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="{{ url_for('faqs') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">FAQs</a></li>
+                        <li><a href="{{ url_for('contact') }}" class="text-gray-300 hover:text-gold transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-gold font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gold mr-3"></i>
+                            <a href="mailto:hostup.co.in@gmail.com" class="hover:text-gold transition-colors duration-300">hostup.co.in@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-gold mr-3"></i>
+                            <a href="https://wa.me/919819726493" class="hover:text-gold transition-colors duration-300">+91 9819726493</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-gold mr-3"></i>
+                            <a href="https://wa.me/919317210055" class="hover:text-gold transition-colors duration-300">+91 9317210055</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-gold mr-3"></i>
+                            <span>24/7 Support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-gold mr-3"></i>
+                            <span>Jaipur | Delhi | Mumbai</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 HostUp. All rights reserved. | 
+                    <a href="#" class="text-gold hover:text-yellow-300 transition-colors duration-300">Privacy Policy</a> | 
+                    <a href="#" class="text-gold hover:text-yellow-300 transition-colors duration-300">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Button -->
+        <button id="chat-toggle" class="w-16 h-16 bg-gold rounded-full shadow-lg flex items-center justify-center text-forest-green hover:scale-110 transition-all duration-300 animate-bounce" aria-label="Open chat">
+            <i class="fas fa-comments text-xl"></i>
+        </button>
+        
+        <!-- Chat Window -->
+        <div id="chat-window" class="absolute bottom-20 right-0 w-80 sm:w-96 bg-white rounded-lg shadow-2xl border border-gray-200 transform scale-0 opacity-0 transition-all duration-300 origin-bottom-right">
+            <div class="bg-forest-green text-white p-4 rounded-t-lg">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-headset text-forest-green text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">HostUp Support</h4>
+                            <p class="text-xs text-gray-300">We're here to help!</p>
+                        </div>
+                    </div>
+                    <button id="chat-close" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-4 h-64 overflow-y-auto" id="chat-messages">
+                <div class="mb-4">
+                    <div class="bg-gray-100 rounded-lg p-3 text-sm">
+                        <p class="text-forest-green font-semibold">👋 Welcome to HostUp!</p>
+                        <p class="text-gray-600 mt-2">I'm your AI assistant, here to help with:</p>
+                        <ul class="text-gray-600 mt-2 text-xs space-y-1">
+                            <li>• Pricing & commission details</li>
+                            <li>• Property requirements & eligibility</li>
+                            <li>• Free consultation scheduling</li>
+                            <li>• Getting started process</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">Choose an option below or ask me anything:</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-2 mb-4" id="quick-options">
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        📅 Schedule Free Consultation
+                    </button>
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        💰 Learn About Pricing
+                    </button>
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        🏠 Property Requirements
+                    </button>
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        🚀 How to Get Started
+                    </button>
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        💵 Revenue Potential
+                    </button>
+                    <button class="quick-option w-full text-left p-2 text-sm bg-light-cream rounded-lg hover:bg-gold hover:text-forest-green transition-colors duration-300">
+                        📱 WhatsApp Support
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t p-4">
+                <div class="flex space-x-2">
+                    <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gold">
+                    <button id="chat-send" class="bg-gold text-forest-green px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300">
+                        <i class="fas fa-paper-plane text-sm"></i>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center">For instant support: <a href="https://wa.me/919819726493" class="text-gold hover:underline">WhatsApp us</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div id="calendar-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-90vh overflow-y-auto">
+            <div class="bg-forest-green text-white p-4 rounded-t-lg">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-playfair text-lg font-semibold">Schedule Free Consultation</h3>
+                    <button onclick="closeCalendarModal()" class="text-white hover:text-gold">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <!-- Step 1: Date Selection -->
+                <div id="date-selection" class="calendar-step">
+                    <h4 class="font-semibold text-forest-green mb-4">Select Date</h4>
+                    <div class="mb-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <button onclick="previousMonth()" class="text-gold hover:text-forest-green">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h5 id="current-month-year" class="font-semibold text-forest-green"></h5>
+                            <button onclick="nextMonth()" class="text-gold hover:text-forest-green">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Calendar header -->
+                        <div class="calendar-grid mb-2">
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Sun</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Mon</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Tue</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Wed</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Thu</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Fri</div>
+                            <div class="text-center text-sm font-medium text-gray-500 py-2">Sat</div>
+                        </div>
+                        
+                        <!-- Calendar days -->
+                        <div id="calendar-days" class="calendar-grid"></div>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Time Selection -->
+                <div id="time-selection" class="calendar-step hidden">
+                    <h4 class="font-semibold text-forest-green mb-4">Select Time</h4>
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <button class="time-slot" data-time="10:00 AM">10:00 AM</button>
+                        <button class="time-slot" data-time="11:00 AM">11:00 AM</button>
+                        <button class="time-slot" data-time="2:00 PM">2:00 PM</button>
+                        <button class="time-slot" data-time="3:00 PM">3:00 PM</button>
+                        <button class="time-slot" data-time="4:00 PM">4:00 PM</button>
+                        <button class="time-slot" data-time="5:00 PM">5:00 PM</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Contact Details -->
+                <div id="contact-details" class="calendar-step hidden">
+                    <h4 class="font-semibold text-forest-green mb-4">Your Details</h4>
+                    <div class="space-y-4">
+                        <input type="text" id="client-name" placeholder="Your Name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gold">
+                        <input type="email" id="client-email" placeholder="Your Email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gold">
+                        <input type="tel" id="client-phone" placeholder="Your Phone Number" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gold">
+                        <select id="property-location" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gold">
+                            <option value="">Select Property Location</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <textarea id="additional-notes" placeholder="Any specific questions or requirements? (Optional)" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-gold h-20"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center mt-6">
+                    <button id="back-btn" onclick="previousStep()" class="text-gold hover:text-forest-green hidden">
+                        <i class="fas fa-arrow-left mr-2"></i>Back
+                    </button>
+                    <div class="flex space-x-3">
+                        <button id="next-btn" onclick="nextStep()" class="bg-gold text-forest-green px-6 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300 hidden">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button id="schedule-btn" onclick="scheduleConsultation()" class="bg-gold text-forest-green px-6 py-2 rounded-lg hover:bg-yellow-600 transition-colors duration-300 hidden">
+                            Schedule Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

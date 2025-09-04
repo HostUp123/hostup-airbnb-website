@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block title %}Frequently Asked Questions - HostUp Airbnb Co-hosting{% endblock %}
+
+{% block description %}Get answers to common questions about HostUp's remote Airbnb co-hosting services, pricing, setup process, and property management across India.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="bg-light-cream py-16 lg:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="font-playfair text-4xl lg:text-5xl font-bold text-forest-green mb-6 animate-fade-in">
+            Frequently Asked Questions
+        </h1>
+        <div class="w-24 h-1 bg-gold mx-auto mb-8"></div>
+        <p class="text-lg lg:text-xl text-gray-600 leading-relaxed animate-slide-up">
+            Everything you need to know about HostUp's remote Airbnb co-hosting services. 
+            Can't find your answer? <a href="{{ url_for('contact') }}" class="text-gold hover:text-yellow-600 transition-colors duration-300">Contact us</a> directly.
+        </p>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-1">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        How does HostUp's remote management actually work?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-1" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed">
+                        We manage your entire Airbnb operation remotely through a combination of technology and local partnerships. 
+                        Our team handles all guest communication via Airbnb's platform, coordinates with trusted local vendors for 
+                        cleaning and maintenance, uses smart locks for keyless entry, and employs dynamic pricing tools to optimize 
+                        your rates. You maintain ownership while we handle day-to-day operations from our command center.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.1s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-2">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        What cities do you currently serve?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-2" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed">
+                        We currently provide full-service Airbnb management in three major Indian cities: <strong>Jaipur</strong>, 
+                        <strong>Delhi</strong>, and <strong>Mumbai</strong>. These cities were chosen for their high tourist demand, 
+                        strong short-term rental markets, and our established vendor networks. We're planning to expand to 
+                        Bangalore, Goa, and Udaipur by 2024.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.2s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-3">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        How much does HostUp charge for its services?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-3" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We charge a <strong>15-25% commission on confirmed bookings</strong>, with rates negotiated based on your property type, location, and requirements. This means:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-check text-gold mr-2 mt-1"></i>No upfront setup fees</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mr-2 mt-1"></i>No hidden charges or monthly retainers</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mr-2 mt-1"></i>We only earn when you earn</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mr-2 mt-1"></i>All services included in this single fee</li>
+                        <li class="flex items-start"><i class="fas fa-check text-gold mr-2 mt-1"></i>Flexible pricing based on your property's potential</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        Our success is directly tied to maximizing your revenue, ensuring we're always motivated to optimize your property's performance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.3s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-4">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        What type of properties work best with HostUp?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-4" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We work with various property types, but some perform exceptionally well:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-home text-gold mr-2 mt-1"></i><strong>Entire apartments/homes</strong> (1-4 bedrooms)</li>
+                        <li class="flex items-start"><i class="fas fa-building text-gold mr-2 mt-1"></i><strong>Serviced apartments</strong> in business districts</li>
+                        <li class="flex items-start"><i class="fas fa-star text-gold mr-2 mt-1"></i><strong>Heritage properties</strong> and unique spaces</li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-gold mr-2 mt-1"></i><strong>Well-located properties</strong> near tourist attractions or business centers</li>
+                        <li class="flex items-start"><i class="fas fa-wifi text-gold mr-2 mt-1"></i><strong>Modern amenities</strong> (WiFi, AC, parking if possible)</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        Properties should be in legal compliance for short-term rentals and preferably furnished to guest-ready standards.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.4s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-5">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        How quickly can I start earning after signing up?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-5" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        The timeline depends on your property's readiness:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-clock text-gold mr-2 mt-1"></i><strong>Property assessment:</strong> 1-2 days</li>
+                        <li class="flex items-start"><i class="fas fa-camera text-gold mr-2 mt-1"></i><strong>Professional photography:</strong> 3-5 days</li>
+                        <li class="flex items-start"><i class="fas fa-list text-gold mr-2 mt-1"></i><strong>Listing creation & optimization:</strong> 2-3 days</li>
+                        <li class="flex items-start"><i class="fas fa-cogs text-gold mr-2 mt-1"></i><strong>Smart lock installation (if needed):</strong> 1-2 days</li>
+                        <li class="flex items-start"><i class="fas fa-users text-gold mr-2 mt-1"></i><strong>Vendor network setup:</strong> 1-2 days</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        <strong>Total timeline: 7-14 days</strong> from signing to receiving your first booking. 
+                        Ready-to-rent properties can be live within a week.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.5s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-6">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        Who handles guest issues or emergencies?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-6" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Our dedicated guest support team handles all guest interactions 24/7:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-headset text-gold mr-2 mt-1"></i><strong>24/7 hotline</strong> for guest emergencies</li>
+                        <li class="flex items-start"><i class="fas fa-tools text-gold mr-2 mt-1"></i><strong>Emergency maintenance</strong> coordination</li>
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-gold mr-2 mt-1"></i><strong>Security issues</strong> and incident management</li>
+                        <li class="flex items-start"><i class="fas fa-medkit text-gold mr-2 mt-1"></i><strong>Medical emergencies</strong> assistance and local support</li>
+                        <li class="flex items-start"><i class="fas fa-phone text-gold mr-2 mt-1"></i><strong>Local emergency contacts</strong> in each city</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        You'll be notified of any significant issues, but we handle the immediate response and resolution 
+                        to ensure guest safety and satisfaction.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.6s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-7">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        What happens to my earnings and how are they transferred?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-7" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Your earnings flow directly to you with complete transparency:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-university text-gold mr-2 mt-1"></i><strong>Direct payments:</strong> Airbnb pays you directly per their standard schedule</li>
+                        <li class="flex items-start"><i class="fas fa-percentage text-gold mr-2 mt-1"></i><strong>Our commission:</strong> Deducted monthly via bank transfer or invoice</li>
+                        <li class="flex items-start"><i class="fas fa-file-invoice text-gold mr-2 mt-1"></i><strong>Monthly reports:</strong> Detailed breakdown of all earnings and deductions</li>
+                        <li class="flex items-start"><i class="fas fa-chart-bar text-gold mr-2 mt-1"></i><strong>Real-time dashboard:</strong> Track your earnings and performance anytime</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        You maintain full control of your Airbnb account and banking details. We never hold your money - 
+                        it flows directly from Airbnb to your account.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.7s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-8">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        Can I terminate the service if I'm not satisfied?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-8" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Absolutely. We believe in earning your business every month:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-handshake text-gold mr-2 mt-1"></i><strong>30-day notice:</strong> Either party can terminate with 30 days written notice</li>
+                        <li class="flex items-start"><i class="fas fa-key text-gold mr-2 mt-1"></i><strong>Full access returned:</strong> We transfer all account access back to you</li>
+                        <li class="flex items-start"><i class="fas fa-file-export text-gold mr-2 mt-1"></i><strong>Data handover:</strong> Complete guest database and booking history provided</li>
+                        <li class="flex items-start"><i class="fas fa-users text-gold mr-2 mt-1"></i><strong>Vendor introductions:</strong> We can introduce you to our trusted local partners</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        No long-term contracts or exit fees. We're confident in our service quality and prefer to earn 
+                        your trust through consistent results rather than binding agreements.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.8s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-9">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        Do you help with legal compliance and registration?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-9" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We provide guidance and support for legal compliance:
+                    </p>
+                    <ul class="space-y-2 text-gray-600 ml-4">
+                        <li class="flex items-start"><i class="fas fa-file-contract text-gold mr-2 mt-1"></i><strong>Registration guidance:</strong> Help with local short-term rental registrations</li>
+                        <li class="flex items-start"><i class="fas fa-balance-scale text-gold mr-2 mt-1"></i><strong>Compliance checklist:</strong> Ensure your property meets local regulations</li>
+                        <li class="flex items-start"><i class="fas fa-calculator text-gold mr-2 mt-1"></i><strong>Tax consultation:</strong> Basic guidance on rental income taxation (recommend consulting CA)</li>
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-gold mr-2 mt-1"></i><strong>Insurance advice:</strong> Recommendations for appropriate coverage</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        <em>Note: We provide general guidance only. For specific legal and tax advice, we recommend 
+                        consulting with qualified professionals in your jurisdiction.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="bg-light-cream rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.9s;">
+                <button class="faq-toggle w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" data-target="faq-10">
+                    <h3 class="font-playfair text-lg lg:text-xl font-semibold text-forest-green pr-8">
+                        How do I get started with HostUp?
+                    </h3>
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-plus text-gold transition-transform duration-300"></i>
+                    </div>
+                </button>
+                <div id="faq-10" class="faq-content hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Getting started is simple and straightforward:
+                    </p>
+                    <ol class="space-y-2 text-gray-600 ml-4 list-decimal">
+                        <li><strong>Free Consultation:</strong> <a href="{{ url_for('contact') }}" class="text-gold hover:text-yellow-600">Book a call</a> or <a href="https://wa.me/919819726493" class="text-gold hover:text-yellow-600">WhatsApp us</a> to discuss your property</li>
+                        <li><strong>Property Assessment:</strong> We evaluate your property's potential and create a custom strategy</li>
+                        <li><strong>Agreement:</strong> Simple service agreement outlining terms and expectations</li>
+                        <li><strong>Setup Phase:</strong> Photography, listing creation, vendor coordination (7-14 days)</li>
+                        <li><strong>Go Live:</strong> Your property starts accepting bookings and earning income</li>
+                    </ol>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        <strong>Ready to start?</strong> Contact us today for your free consultation and property assessment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 lg:py-24 bg-forest-green text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-gold mb-6">
+            Still Have Questions?
+        </h2>
+        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+            Our team is here to help! Get personalized answers to your specific questions about 
+            HostUp's Airbnb co-hosting services.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="{{ url_for('contact') }}" class="btn-primary">
+                Schedule Free Consultation
+                <i class="fas fa-calendar-alt ml-2"></i>
+            </a>
+            <a href="https://wa.me/919819726493" class="btn-secondary">
+                WhatsApp Us Now
+                <i class="fab fa-whatsapp ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
